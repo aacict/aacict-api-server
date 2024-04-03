@@ -9,7 +9,8 @@ print(news)
 data = []
 
 for item in news:
-    sentiment = getSentimentFromText(item["desc"])
+    description = item["desc"] or item["title"]
+    sentiment = getSentimentFromText(description)
     print("sentiment for the news title: ", item["title"], "::::::::::::::::::::::::::::::::;")
     print(sentiment)
     data.append({**item, **sentiment})
