@@ -3,6 +3,7 @@ from transformers import TFAutoModelForSequenceClassification
 from transformers import AutoTokenizer, AutoConfig
 import numpy as np
 from scipy.special import softmax
+from transformers import pipeline
 
 def preprocess(text):
     new_text = []
@@ -32,5 +33,8 @@ def getSentimentFromText(text):
         l = config.id2label[ranking[i]]
         s = scores[ranking[i]]
         result[l] = np.round(float(s), 4)
-
+    
+    sentiment_task = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
+    sentiment_task(text)
+    result['Label'] = sentiment_task(text)[0]["label"]
     return result
