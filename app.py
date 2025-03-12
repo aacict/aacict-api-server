@@ -11,7 +11,7 @@ def get_news():
 
 @app.route('/get-news-sentiment', methods=['POST'])
 def post_data():
-    data = request.get_json()  # Get JSON data from request
+    data = request.get_json()
     news = data.get("news")
 
 
