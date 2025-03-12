@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from newsRetrieve import getNews
+from sentimentAnalysis import getSentimentFromText
 
 app = Flask(__name__)
 
@@ -13,17 +14,27 @@ def post_data():
     data = request.get_json()  # Get JSON data from request
     news = data.get("news")
 
-    for item in news:
-        description = item["desc"] or item["title"]
-        sentiment = getSentimentFromText(description)
-        print("sentiment for the news title: ", item["title"], "::::::::::::::::::::::::::::::::;")
-        print(sentiment)
-        data.append({**item, **sentiment})
 
     if len(news) == 0 or news is None:
         return jsonify({"error": "No data provided"}), 400
+    
+    res=[]
+    for item in news:
+        print("item: ", item)
+        description = item["desc"] or item["title"]
 
-    return jsonify({"message": "Data received successfully!", "data": news})
+        try:
+            sentiment = getSentimentFromText(description)
+            print("sentiment for the news title: ", item["title"], "::::::::::::::::::::::::::::::::;")
+            print(sentiment)
+        except Exception as e:
+            print(f"Error occurred while getting sentiment for {item['title']}: {e}")
+            sentiment = {}  # Assigning an empty dictionary in case of error
+
+        res.append({**item, **sentiment})
+        
+
+    return jsonify({"message": "Data received successfully!", "data": res})
 
 # Run the Flask server
 if __name__ == '__main__':

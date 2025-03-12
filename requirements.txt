@@ -1,4 +1,5 @@
 newsdataapi
-transformers
 python-dotenv
 flask
+transformers==4.38.2
+numpy==1.26.4
