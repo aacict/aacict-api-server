@@ -1,0 +1,4 @@
+newsdataapi
+transformers
+python-dotenv
+flask
