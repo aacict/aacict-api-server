@@ -6,6 +6,13 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["https://thapaashish.com.np", "http://localhost:5173"]}})
 
+@app.route('/', methods=['GET'])
+def home():
+    try:
+        return jsonify({"status": "success", "data": "Test Home Route"})
+    except Exception as e:
+        print(e)
+        return jsonify({"error": f"An error occurred: {e}"}), 500
 
 @app.route('/get-news', methods=['GET'])
 def get_news():
