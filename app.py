@@ -2,9 +2,12 @@ from flask import Flask, jsonify, request
 from newsRetrieve import getNews
 from sentimentAnalysis import getSentimentFromText
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 
+load_dotenv() 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://thapaashish.com.np", "http://localhost:5173"]}})
+CORS(app, resources={r"/*": {"origins": ["https://thapaashish.com.np", "http://localhost:5173", os.getenv("APP_URL")]}})
 
 @app.route('/', methods=['GET'])
 def home():
