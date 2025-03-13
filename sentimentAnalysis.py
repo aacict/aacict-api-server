@@ -36,5 +36,5 @@ def getSentimentFromText(text):
     
     sentiment_task = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
     sentiment_task(text)
-    result['Label'] = sentiment_task(text)[0]["label"]
+    result['label'] = sentiment_task(text)[0]["label"]
     return result

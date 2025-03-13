@@ -4,6 +4,7 @@ import os
 
 load_dotenv() 
 
+
 api = NewsDataApiClient(apikey=os.getenv("NEWDATA_API_KEY"))
 
 def getNews(query='ronaldo', country= 'us', language='en'):
