@@ -1,3 +1,12 @@
+---
+title: API
+emoji: 🐢
+colorFrom: purple
+colorTo: blue
+sdk: docker
+pinned: false
+---
+
 # News Sentiment Analysis
 
 This repository contains code and resources for performing sentiment analysis on news articles. The goal of this project is to analyze and classify the sentiment expressed in news text as positive, negative, or neutral.
