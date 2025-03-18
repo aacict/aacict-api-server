@@ -5,17 +5,20 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y libgl1 && apt-get clean
 
 # Add a non-root user
-RUN useradd -m -u 1000 user 
+RUN useradd -m -u 1000 user
 
 # Set environment variables
 ENV HOME=/home/user
 ENV HF_HOME=/app/.cache
 
+# Add .local/bin to PATH
+ENV PATH="/home/user/.local/bin:${PATH}"
+
 # Ensure the /app directory and cache directory have the correct permissions
 RUN chown -R user:user /app
 
 # Create the .cache directory and assign proper permissions
-RUN mkdir -p $HF_HOME && chown -R user:user $HF_HOME 
+RUN mkdir -p $HF_HOME && chown -R user:user $HF_HOME
 
 # Switch to non-root user
 USER user
