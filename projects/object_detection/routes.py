@@ -22,15 +22,16 @@ def analyze_image():
         except IOError:
             font = ImageFont.load_default()
 
-        result = detect(img)  
+        result, model = detect(img)  
         for score, label, box in zip(result["scores"], result["labels"], result["boxes"]):
             draw.rectangle(box.tolist(), outline="green", width=2)
-            label_text = f"{model.config.id2label[label.item()]}: {round(score.item(), 2)}"
-            text_position = (box[0], box[1] - 10)
+            label_text = model.config.id2label[label.item()]
+            label_text = f"{label_text}: {round(score.item(), 2)}"
+            text_position = (box[0], box[1] - 20)
             draw.text(text_position, label_text, fill="blue", font=font)
         
         img_byte_arr = BytesIO()
-        img.save(img_byte_arr, format="JPEG")  # or PNG, if you prefer
+        img.save(img_byte_arr, format="JPEG")  
         img_byte_arr.seek(0)
 
         return send_file(img_byte_arr, mimetype="image/jpeg")
