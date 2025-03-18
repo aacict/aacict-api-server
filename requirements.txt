@@ -8,3 +8,4 @@ scipy
 torch
 torchvision
 torchaudio
+gunicorn==20.1.0
