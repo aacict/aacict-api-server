@@ -5,7 +5,7 @@ colorFrom: purple
 colorTo: blue
 sdk: docker
 pinned: false
-app_file: app.py
+app_file: /app/app.py
 ---
 
 # News Sentiment Analysis
