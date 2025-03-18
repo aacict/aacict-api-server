@@ -7,53 +7,80 @@ sdk: docker
 pinned: false
 ---
 
-# News Sentiment Analysis
+# aacict-api-server
 
-This repository contains code and resources for performing sentiment analysis on news articles. The goal of this project is to analyze and classify the sentiment expressed in news text as positive, negative, or neutral.
+This repository serves as a central API server for personal projects, designed to be integrated with a portfolio website built using Vite React which include UI for the projects. Each project within this server exposes its own API endpoints, allowing for modular development and deployment.
 
-## Project Description
+## Table of Contents
 
-Sentiment analysis, also known as opinion mining, is a natural language processing (NLP) technique used to determine the emotional tone behind a piece of text. In this project, we apply sentiment analysis to news articles to understand public opinion and attitudes towards various topics, events, or entities covered in the news.
+- [Project Overview](#project-overview)
+- [Projects](#projects)
+  - [News Sentiment Analysis](#news-sentiment-analysis)
+  - [Object_Detection](#object-detection)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Implementation](#implementation)
 
-## Features
+## Project Overview
 
-* **Data Acquisition:**  News data retrieved from NewsDataApiClient module,
-* **Text Preprocessing:** Techniques for cleaning and preparing the text data for analysis
-* **Sentiment Analysis Models:** Using [cardiffnlp/twitter-roberta-base-sentiment-latest](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment) transformer model from Hugging face
+This API server is structured to host multiple personal projects, each with its dedicated set of API endpoints. It aims to provide a unified backend for a portfolio website, enabling diverse functionalities through a single server. This setup facilitates efficient management, deployment, and scalability of individual projects.
+* **API hosted to (Hugging Face):** [API Link](https://huggingface.co/spaces/aacict/news_sentiment_analysis)
+
+## Projects
+
+### News Sentiment Analysis
+
+This project analyzes and classifies the sentiment expressed in news articles as positive, negative, or neutral. It utilizes natural language processing (NLP) techniques to understand public opinion and attitudes towards various topics, events, or entities covered in the news.
+
+#### Features
+
+* **Data Acquisition:** News data retrieved from the NewsDataApiClient module.
+* **Text Preprocessing:** Techniques for cleaning and preparing text data for analysis.
+* **Sentiment Analysis Models:** Utilizes the [cardiffnlp/twitter-roberta-base-sentiment-latest](https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment) transformer model from Hugging Face.
 * **Sentiment Classification:** Classification of news articles into sentiment categories (positive, negative, neutral).
+
+#### Implementation
+
+* **News Sentiment Analysis Demo:** [Click me to view](https://thapaashish.com.np/news_sentiment_analysis)
 
 ## Technologies Used
 
 * Python
-* Hugging Face - transformer
+* Hugging Face - Transformers
 * NewsDataApiClient
 * Flask
 
 ## Installation
 
 1.  **Clone the repository:**
+
     ```bash
-    git clone ...
-    cd news_sentiment_analysis
+    git clone <repository_url>
+    cd aacict-api-server
     ```
+
 2.  **Create a virtual environment (recommended):**
+
     ```bash
     python -m venv venv
     source venv/bin/activate  # On Linux/macOS
-    venv\Scripts\activate  # On Windows
+    venv\Scripts\activate     # On Windows
     ```
+
 3.  **Install the required dependencies:**
+
     ```bash
     pip install -r requirements.txt
     ```
 
 ## Usage
 
-1.  **Data Preparation:** You can query news from the api.
-2.  **Can use the endpoint to post the news to get the sentiments:**
+1.  **Data Preparation (News Sentiment Analysis):** You can query news from the API.
+2.  **API Endpoint Usage (News Sentiment Analysis):** Use the endpoint to post news and receive sentiment analysis results.
+
     ```bash
-    python app.py or flask run  # to run the server
+    python app.py or flask run  # To run the server
     ```
-## Implementation::
-[Click me to view](https://thapaashish.com.np/news_sentiment_analysis)
-[API deployed to hugging face](https://huggingface.co/spaces/aacict/news_sentiment_analysis)
+
+---
