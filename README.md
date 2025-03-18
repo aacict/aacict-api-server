@@ -7,9 +7,11 @@ sdk: docker
 pinned: false
 ---
 
-# aacict-api-server
+# Aacict Api Hub
 
 This repository serves as a central API server for personal projects, designed to be integrated with a portfolio website built using Vite React which include UI for the projects. Each project within this server exposes its own API endpoints, allowing for modular development and deployment.
+
+---
 
 ## Table of Contents
 
@@ -20,18 +22,20 @@ This repository serves as a central API server for personal projects, designed t
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Implementation](#implementation)
 
+---
 ## Project Overview
 
 This API server is structured to host multiple personal projects, each with its dedicated set of API endpoints. It aims to provide a unified backend for a portfolio website, enabling diverse functionalities through a single server. This setup facilitates efficient management, deployment, and scalability of individual projects.
 * **API hosted to (Hugging Face):** [API Link](https://huggingface.co/spaces/aacict/news_sentiment_analysis)
 
-## Projects
+---
+
+## Project
 
 ### News Sentiment Analysis
 
-This project analyzes and classifies the sentiment expressed in news articles as positive, negative, or neutral. It utilizes natural language processing (NLP) techniques to understand public opinion and attitudes towards various topics, events, or entities covered in the news.
+This project analyzes and classifies the sentiment expressed in news articles as positive, negative, or neutral. It utilizes hugging face pre trainned model `cardiffnlp/twitter-roberta-base-sentiment-latest` to understand public opinion and attitudes towards various topics, events, or entities covered in the news.
 
 #### Features
 
@@ -44,12 +48,16 @@ This project analyzes and classifies the sentiment expressed in news articles as
 
 * **News Sentiment Analysis Demo:** [Click me to view](https://thapaashish.com.np/news_sentiment_analysis)
 
+---
+
 ## Technologies Used
 
 * Python
 * Hugging Face - Transformers
 * NewsDataApiClient
 * Flask
+
+---
 
 ## Installation
 
@@ -73,6 +81,8 @@ This project analyzes and classifies the sentiment expressed in news articles as
     ```bash
     pip install -r requirements.txt
     ```
+
+---
 
 ## Usage
 
