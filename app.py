@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from waitress import serve
 from flask_cors import CORS
 from projects.news_sentiment_analysis.routes import news_sentiment_bp
 from projects.object_detection.routes import object_detection_bp
@@ -9,8 +10,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'project
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["https://thapaashish.com.np", "http://localhost:5173", config.APP_URL]}})
 
-app.register_blueprint(news_sentiment_bp, url_prefix='/news_sentiment')
-app.register_blueprint(object_detection_bp, url_prefix='/object_detection')
+app.register_blueprint(news_sentiment_bp, url_prefix='/news-sentiment')
+app.register_blueprint(object_detection_bp, url_prefix='/object-detection')
 
 @app.route('/', methods=['GET'])
 def home():
@@ -22,4 +23,4 @@ def home():
 
 # Run the Flask server
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=7860)
+    app.run(debug=True, use_reloader=True, host='0.0.0.0', port=7860)
