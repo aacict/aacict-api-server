@@ -54,3 +54,6 @@ Sentiment analysis, also known as opinion mining, is a natural language processi
     ```bash
     python app.py or flask run  # to run the server
     ```
+## Implementation::
+[Click me to view](https://thapaashish.com.np/news_sentiment_analysis)
+[API deployed to hugging face](https://huggingface.co/spaces/aacict/news_sentiment_analysis)
